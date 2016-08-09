@@ -12,7 +12,7 @@ class AppKernel extends Kernel
         $parameters = $this->getContainer()->getParameter('biz');
         $biz= new Biz\BizKernel($parameters);
         $biz->boot();
-        $this->getContainer()->set('biz.kernel', $biz);
+        $this->getContainer()->set('biz', $biz);
     }
 
     public function registerBundles()

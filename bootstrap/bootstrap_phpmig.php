@@ -9,7 +9,7 @@ $env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?:
 $kernel = new AppKernel($env, true);
 $kernel->boot();
 
-$biz = $kernel->getContainer()->get('biz.kernel');
+$biz = $kernel->getContainer()->get('biz');
 
 $migration = new MigrationBootstrap($biz);
 return $migration->boot();

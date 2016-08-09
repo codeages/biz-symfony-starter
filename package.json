@@ -1,0 +1,31 @@
+{
+  "name": "biz-symfony-starter",
+  "version": "1.0.0",
+  "description": "biz-symfony-starter",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeages/biz-symfony-starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeages/biz-symfony-starter/issues"
+  },
+  "homepage": "https://github.com/codeages/biz-symfony-starter#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^6.0.0-9"
+  },
+  "dependencies": {
+    "admin-lte": "^2.3.6",
+    "bootstrap": "^3.3.7",
+    "jquery": "^1.12.4"
+  }
+}

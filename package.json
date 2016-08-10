@@ -26,6 +26,7 @@
   "dependencies": {
     "admin-lte": "^2.3.6",
     "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
     "jquery": "^1.12.4"
   }
 }

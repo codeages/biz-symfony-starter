@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{{ script(['common/js/vendor.js']) -}}
+{{- css('common/css/vendor.css') -}}
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -6,13 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     {% block stylesheets %}
-      <link href="{{ asset('assets/common/css/vendor.css') }}" rel="stylesheet" />
+      
+      {% for path in css() %}
+        <link href="{{ asset('assets/' ~ path) }}" rel="stylesheet" />
+      {% endfor %}
     {% endblock %}
   </head>
   <body>
     {% block body %}{% endblock %}
-    {% block javascripts %}
-      <script src="{{ asset('assets/common/js/vendor.js') }}"></script>
+    {% block scripts %}
+      
+      {% for path in script()  %}
+        <script src="{{ asset( 'assets/' ~ path) }}"></script>
+      {% endfor %}
     {% endblock %}
   </body>
 </html>

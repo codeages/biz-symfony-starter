@@ -10,7 +10,7 @@ services:
 
     biz:
       class: Biz\BizKernel
-      arguments: ["%biz%"]
+      arguments: ["%biz%", "@service_container"]
 
     app.asset_helper.twig_extension:
         class: AppBundle\Twig\AssetHelperExtension

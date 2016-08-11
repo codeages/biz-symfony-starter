@@ -5,6 +5,14 @@ use Codeages\Biz\Framework\Context\Kernel;
 
 class BizKernel extends Kernel
 {
+    protected $extraContainer;
+
+    public function __construct($config, $extraContainer)
+    {
+        parent::__construct($config);
+        $this->extraContainer = $extraContainer;
+    }
+
     public function boot($options = array())
     {
         $this->registerService();
@@ -28,7 +36,7 @@ class BizKernel extends Kernel
         };
 
         $this['password_encoder'] = function($container) {
-            return new \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder('sha256');
+            return $this->extraContainer->get('security.password_encoder');
         };
     }
 }

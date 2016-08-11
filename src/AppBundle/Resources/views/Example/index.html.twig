@@ -6,7 +6,7 @@
     {% if app.user %}
       Hello, {{ app.user.username }} ! <a href="{{ path('logout') }}">退出</a>
     {% else %}
-      Hello, 请 <a href="{{ path('login') }}">登陆</a> !
+      Hello, 请 <a href="{{ path('login') }}">登陆</a>, <a href="{{ path('register') }}">注册</a>!
     {% endif %}
   </p>
 {% endblock %}

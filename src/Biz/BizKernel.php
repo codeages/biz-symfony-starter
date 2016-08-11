@@ -36,7 +36,9 @@ class BizKernel extends Kernel
         };
 
         $this['password_encoder'] = function($container) {
-            return $this->extraContainer->get('security.password_encoder');
+            $class = $this->extraContainer->getParameter('app.current_user.class');
+            $user = new $class(array());
+            return $this->extraContainer->get('security.encoder_factory')->getEncoder($user);
         };
     }
 }

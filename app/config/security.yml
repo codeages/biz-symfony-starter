@@ -8,7 +8,7 @@ security:
             id: app.user_provider
 
     encoders:
-        AppBundle\Security\CurrentUser: sha256
+        "%app.current_user.class%": sha256
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs

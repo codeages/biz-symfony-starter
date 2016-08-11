@@ -12,12 +12,12 @@ class DefaultController extends BaseController
     public function indexAction(Request $request)
     {
         return $this->render('AppBundle:Example:index.html.twig', array(
-            'example' => $this->getExampleService()->getExample(1)
+            // 'example' => $this->getExampleService()->getExample(1)
         ));
     }
 
-    protected function getExampleService()
+    protected function getUserService()
     {
-        return $this->biz['example_service'];
+        return $this->biz['user_service'];
     }
 }

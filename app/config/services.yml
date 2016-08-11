@@ -8,8 +8,17 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
-    app_asset_helper.twig_extension:
+    biz:
+      class: Biz\BizKernel
+      arguments: ["%biz%"]
+
+    app.asset_helper.twig_extension:
         class: AppBundle\Twig\AssetHelperExtension
         public: false
         tags:
             - { name: twig.extension }
+
+    app.user_provider:
+        class: AppBundle\Security\UserProvider
+        arguments: ["@biz"]
+

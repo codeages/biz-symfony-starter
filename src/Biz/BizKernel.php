@@ -19,12 +19,16 @@ class BizKernel extends Kernel
 
     protected function registerService()
     {
-        $this['example_dao'] = $this->dao(function($container) {
-            return new Example\Dao\Impl\ExampleDaoImpl($container);
+        $this['user_dao'] = $this->dao(function($container) {
+            return new User\Dao\Impl\UserDaoImpl($container);
         });
 
-        $this['example_service'] = function($container) {
-            return new Example\Impl\ExampleServiceImpl($container);
+        $this['user_service'] = function($container) {
+            return new User\Impl\UserServiceImpl($container);
+        };
+
+        $this['password_encoder'] = function($container) {
+            return new \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder('sha256');
         };
     }
 }

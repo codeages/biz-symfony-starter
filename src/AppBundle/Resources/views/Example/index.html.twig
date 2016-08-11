@@ -2,7 +2,11 @@
 
 {% block body %}
   {{ script(['app/js/example.js']) }}
-  
-  Hello, example!
-
+  <p>
+    {% if app.user %}
+      Hello, {{ app.user.username }} ! <a href="{{ path('logout') }}">退出</a>
+    {% else %}
+      Hello, 请 <a href="{{ path('login') }}">登陆</a> !
+    {% endif %}
+  </p>
 {% endblock %}

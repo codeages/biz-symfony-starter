@@ -1,3 +1,16 @@
 homepage:
   path:      /
   defaults:  { _controller: AppBundle:Default:index }
+
+login:
+  path:      /login
+  defaults:  { _controller: AppBundle:Auth:login }
+
+login_check:
+  path:      /login_check
+  defaults:  { _controller: AppBundle:Auth:check }
+
+logout:
+  path:      /logout
+  defaults:  { _controller: AppBundle:Auth:logout }
+

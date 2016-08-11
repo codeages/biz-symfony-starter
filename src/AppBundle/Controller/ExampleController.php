@@ -1,13 +1,26 @@
 <?php
-
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class AuthController extends BaseController
+class ExampleController extends BaseController
 {
+    public function homepageAction(Request $request)
+    {
+        return $this->render('AppBundle:Example:index.html.twig');
+    }
+
+    public function registerAction(Request $request)
+    {
+        if ('POST' == $request->getMethod()) {
+            $user = $request->request->all();
+            $user = $this->getUserService()->register($user);
+            $this->login($user, $request);
+            return $this->redirect($this->generateUrl('homepage'));
+        }
+
+        return $this->render('AppBundle:Example:register.html.twig');
+    }
 
     public function loginAction(Request $request)
     {
@@ -20,9 +33,8 @@ class AuthController extends BaseController
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render(
-            'AppBundle:Auth:login.html.twig',
+            'AppBundle:Example:login.html.twig',
             array(
-                // last username entered by the user
                 'last_username' => $lastUsername,
                 'error'         => $error,
             )
@@ -32,16 +44,14 @@ class AuthController extends BaseController
 
     public function logoutAction(Request $request)
     {
-
     }
 
     public function checkAction(Request $request)
     {
-
     }
 
-    protected function getExampleService()
+    protected function getUserService()
     {
-        return $this->biz['example_service'];
+        return $this->biz['user_service'];
     }
 }

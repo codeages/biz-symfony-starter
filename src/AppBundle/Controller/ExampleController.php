@@ -50,6 +50,27 @@ class ExampleController extends BaseController
     {
     }
 
+    public function formSubmitAction(Request $request)
+    {
+        if ('POST' == $request->getMethod()) {
+            $fields = $request->request->all();
+        }
+
+        return $this->render('AppBundle:Example:form-submit.html.twig', array(
+            'fields' => isset($fields) ? $fields : null,
+        ));
+    }
+
+    public function ajaxFormSubmitAction(Request $request)
+    {
+        if ('POST' == $request->getMethod()) {
+            $fields = $request->request->all();
+            return $this->json($fields);
+        }
+
+        return $this->render('AppBundle:Example:ajax-form-submit.html.twig');
+    }
+
     protected function getUserService()
     {
         return $this->biz['user_service'];

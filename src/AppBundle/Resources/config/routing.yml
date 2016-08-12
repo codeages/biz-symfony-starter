@@ -17,3 +17,12 @@ logout:
 register:
   path:      /register
   defaults:  { _controller: AppBundle:Example:register }
+
+example_form_submit:
+  path:      /example/form_submit
+  defaults:  { _controller: AppBundle:Example:formSubmit }
+
+example_ajax_form_submit:
+  path:      /example/ajax_form_submit
+  defaults:  { _controller: AppBundle:Example:ajaxFormSubmit }
+

@@ -16,6 +16,8 @@ elixir(function(mix) {
 
     mix.copy('./node_modules/font-awesome/fonts', 'web/assets/common/fonts');
     mix.copy('./node_modules/bootstrap/dist/fonts', 'web/assets/common/fonts');
+
+    mix.copy('./app/Resources/assets/global.js', 'web/assets/global.js');
     mix.copy('./src/AppBundle/Resources/assets', 'web/assets/app');
 
 });

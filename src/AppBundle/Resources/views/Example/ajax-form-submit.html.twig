@@ -15,6 +15,8 @@
           <input type="text" class="form-control" name="username" value="">
         </div>
         <div class="alert alert-info" id="result"></div>
+
+        {{ form_csrf_token() }}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('site') }}">
         <button type="submit" class="btn btn-primary">提交</button>
       </form>

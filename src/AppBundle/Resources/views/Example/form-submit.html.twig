@@ -9,7 +9,7 @@
 
       <p>
         每个表单需加入：
-        <pre>{{ '<input type="hidden" name="_csrf_token" value="{{ csrf_token(\'site\') }}">'|e }}</pre>
+        <pre>{% verbatim %}{{ form_csrf_token() }}{% endverbatim %}</pre>
       </p>
 
       {% if fields %}
@@ -25,7 +25,7 @@
           <label>用户名</label>
           <input type="text" class="form-control" name="username" value="">
         </div>
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('site') }}">
+        {{ form_csrf_token() }}
         <button type="submit" class="btn btn-primary">提交</button>
       </form>
 

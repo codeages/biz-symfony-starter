@@ -30,11 +30,12 @@ class CsrfTokenValidateListener
         if ($request->isXmlHttpRequest()) {
             $token = $request->headers->get('X-CSRF-Token');
         } else {
-            $token = $request->request->get('_csrf_token', '');
+            $name = $this->container->getParameter('app.csrf.token_form_name');
+            $token = $request->request->get($name, '');
         }
         $request->request->remove('_csrf_token');
 
-        if (!$this->isCsrfTokenValid('site', $token)) {
+        if (!$this->isCsrfTokenValid($this->container->getParameter('app.csrf.token_id.default'), $token)) {
             $error = array (
                 'code' => 5,
                 'message' => '页面已过期，请重新提交数据!'

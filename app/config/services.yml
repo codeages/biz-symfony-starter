@@ -3,6 +3,8 @@
 parameters:
 #    parameter_name: value
     app.current_user.class: AppBundle\Security\CurrentUser
+    app.csrf.token_id.default: app 
+    app.csrf.token_form_name: _csrf_token
 
 services:
 #    service_name:
@@ -13,8 +15,9 @@ services:
       class: Biz\BizKernel
       arguments: ["%biz%", "@service_container"]
 
-    app.asset_helper.twig_extension:
-        class: AppBundle\Twig\AssetHelperExtension
+    app.helper.twig_extension:
+        class: AppBundle\Twig\HelperExtension
+        arguments:    ['@service_container']
         public: false
         tags:
             - { name: twig.extension }

@@ -19,6 +19,7 @@ class User extends Migration
         $table->addColumn('password', 'string', array('length' => 64, 'null' => false, 'comment' => '密码'));
         $table->addColumn('salt', 'string', array('length' => 64, 'null' => false, 'comment' => '密码加密Salt'));
         $table->addColumn('roles', 'string', array('length' => 512, 'null' => false, 'comment' => '角色'));
+        $table->addColumn('provider', 'string', array('length' => 32, 'columnDefinition' => "ENUM('default', 'ldap') NOT NULL DEFAULT 'default' COMMENT '用户验证的提供者'"));
         $table->addColumn('updated', 'integer', array('default' => 0, 'signed' => true));
         $table->addColumn('created', 'integer', array('default' => 0, 'signed' => true));
         $table->setPrimaryKey(array('id'));

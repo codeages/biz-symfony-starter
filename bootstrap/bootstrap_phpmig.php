@@ -13,3 +13,4 @@ $biz = $kernel->getContainer()->get('biz');
 
 $migration = new MigrationBootstrap($biz);
 return $migration->boot();
+

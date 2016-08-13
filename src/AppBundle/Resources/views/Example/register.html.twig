@@ -20,6 +20,7 @@
             <input type="checkbox"> 记住密码
           </label>
         </div>
+        {{ form_csrf_token() }}
         <button type="submit" class="btn btn-primary">注册</button>
       </form>
     </div>

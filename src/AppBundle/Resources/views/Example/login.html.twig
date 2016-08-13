@@ -24,7 +24,7 @@
             <input type="checkbox" name="_remember_me" checked /> 记住密码
           </label>
         </div>
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        {{ form_csrf_token() }}
         <button type="submit" class="btn btn-primary">登陆</button>
       </form>
     </div>

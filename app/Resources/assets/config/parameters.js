@@ -9,7 +9,6 @@ const parameters = {
   },
   libs: {
     vendor: ['../libs/vendor.js'], //can be a js file
-    ckeditor: ['ckeditor'], //or can be a node module name
     "fix-ie": ['html5shiv', 'respond-js'],
     "jquery-validation": ['../libs/js/jquery-validation.js'],
     "jquery-form": ['jquery-form'],

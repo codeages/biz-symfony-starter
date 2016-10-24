@@ -2,6 +2,7 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
+    locale: en
     database_host: 127.0.0.1
     database_port: null
     database_name: example
@@ -13,4 +14,4 @@ parameters:
     mailer_password: null
     webpack_assets_base_url: http://127.0.0.1:3030
     webpack_assets_version: 1
-    secret: this is your secret.
+    secret: 'this is your secret.'

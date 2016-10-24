@@ -8,8 +8,8 @@ class DefaultController extends BaseController
 {
     public function indexAction(Request $request)
     {
-        // $user = $this->getUserService()->getUser(1);
-        // var_dump($user);
+        $user = $this->getUserService()->getUser(1);
+        var_dump($user);
         return $this->render('AppBundle:Default:index.html.twig', array());
     }
 

@@ -40,6 +40,6 @@ class UserServiceTest extends BaseTestCase
 
     protected function getUserService()
     {
-        return self::$kernel['user_service'];
+        return self::$biz->service('User:UserService');
     }
 }

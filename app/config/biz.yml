@@ -9,6 +9,7 @@ parameters:
             port: "%database_port%"
             driver: pdo_mysql
             charset: UTF8
+            wrapperClass: "%database_wrapper_class%"
         cache_directory: "%kernel.root_dir%/../var/cache"
         tmp_directory: "%kernel.root_dir%/../var/tmp"
         log_directory: "%kernel.root_dir%/../var/logs"

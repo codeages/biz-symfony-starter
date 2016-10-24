@@ -2,6 +2,19 @@ imports:
     - { resource: config_dev.yml }
     - { resource: parameters_test.yml }
 
+parameters:
+    biz: 
+        debug: "%kernel.debug%"
+        db.options:
+            dbname: "%database_name%"
+            user: "%database_user%"
+            password: "%database_password%"
+            host: "%database_host%"
+            port: "%database_port%"
+            driver: pdo_mysql
+            charset: UTF8
+            wrapperClass: Codeages\Biz\Framework\Dao\TestCaseConnection
+
 framework:
     test: ~
     session:

@@ -13,9 +13,9 @@ class Init extends Migration
         $sql = "
          CREATE TABLE `user` (
           `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-          `username` varchar(64) NOT NULL COMMENT '用户名',
-          `password` varchar(64) NOT NULL COMMENT '用户密码',
-          `salt` varchar(32) NOT NULL COMMENT '密码SALT',
+          `username` varchar(64) NOT NULL DEFAULT '' COMMENT '用户名',
+          `password` varchar(64) NOT NULL DEFAULT '' COMMENT '用户密码',
+          `salt` varchar(32) NOT NULL DEFAULT '' COMMENT '密码SALT',
           `created_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '注册时间',
           `updated_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最后更新时间',
           PRIMARY KEY (`id`),

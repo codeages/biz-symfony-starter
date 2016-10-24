@@ -17,6 +17,9 @@ class UserServiceImpl extends BaseService implements UserService
         return $this->getUserDao()->getByUsername($username);
     }
 
+    /**
+     * 注意：此方法为示例方法，不能作为正式的用户注册的业务方法，请修改。
+     */
     public function createUser($fields)
     {
         $user = [];
@@ -24,10 +27,7 @@ class UserServiceImpl extends BaseService implements UserService
 
         $user['salt'] = md5(time().mt_rand(0, 1000));
         $user['password'] = $this->biz['user.password_encoder']->encodePassword($fields['password'], $user['salt']);
-
-        if (empty($user['roles'])) {
-            $user['roles'] = array('ROLE_USER');
-        }
+        $user['roles'] = empty($fields['roles']) ? array('ROLE_USER') : $fields['roles'];
 
         return $this->getUserDao()->create($user);
     }

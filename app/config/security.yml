@@ -39,5 +39,4 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     access_control:
-        # - { path: ^/my, role: ROLE_USER }
-        # - { path: ^/admin, role: ROLE_ADMIN }
+        - { path: ^/admin, role: ROLE_ADMIN }

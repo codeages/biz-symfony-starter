@@ -18,7 +18,7 @@ class UserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {
-        $user = $this->biz['user_service']->getUserByUsername($username);
+        $user = $this->biz->service('User:UserService')->getUserByUsername($username);
         if (empty($user)) {
             throw new UsernameNotFoundException(
                 sprintf('Username "%s" does not exist.', $username)
@@ -27,7 +27,7 @@ class UserProvider implements UserProviderInterface
 
         $currentUser = new CurrentUser($user);
 
-        $this->biz->setUser($currentUser);
+        $this->biz['user'] = $currentUser;
 
         return new CurrentUser($user);
     }

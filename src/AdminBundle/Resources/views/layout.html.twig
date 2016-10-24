@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+{% import "AdminBundle::macro.html.twig" as admin_macro %}
+
+{% do css(['libs/vendor.css', 'admin.css'], 100) %}
+{% do script(['libs/vendor.js', 'admin.js'], 100) %}
+{% set body_class = 'hold-transition skin-blue-light sidebar-mini' %}
+
+{% block body %}
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="" class="logo">
+      <span class="logo-mini"><b>ESO</b></span>
+      <span class="logo-lg"><b>ESO</b>Admin</span>
+    </a>
+    <nav class="navbar navbar-static-top">
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">伸缩导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li><a href="#"><span class="hidden-xs">系统管理员</span></a></li>
+          <li><a href="#"><span class="hidden-xs">退出</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header">主导航</li>
+        <li class="treeview {{ nav == 'dashboard' ? 'active' : '' }}">
+          <a href="{{ path('admin_dashboard') }}">
+            <i class="fa fa-dashboard"></i>
+            <span>控制台</span>
+          </a>
+        </li>
+        {% set menus = {
+          'site': { name: '网校列表', path: path('admin_site') },
+          'site-identify': { name: '认证管理', path: path('admin_site_identify_filter', {type: 'personal', status: 'submitted'}) }
+        } %}
+        {{ _self.menu_group('网校', menus, nav) }}
+        {% set menus = {
+          'fund_account': { name: '账户', path: path('admin_fund_account') },
+          'fund_account_item': { name: '账目流水', path: path('admin_fund_account_items') },
+          'withdraws': { name: '提现记录', path: path('admin_withdraws') },
+        } %}
+        {{ _self.menu_group('财务', menus, nav) }}
+
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      {% block content_header %}{% endblock %}
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      {% block content_body %}
+        <div class="box">
+          <div class="box-body">
+            {% block content_body_boxed %}{% endblock %}
+          </div>
+        </div>
+      {% endblock %}
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}
+
+{% macro menu_group(title, menus, nav) %}
+  <li class="treeview {{ nav in menus|keys ? 'active' : '' }}">
+    <a>
+      <i class="fa fa-cube"></i>
+      <span>{{ title }}</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      {% for key in menus|keys %}
+        <li class="{{ nav == key ? 'active' : '' }}">
+          <a href="{{ menus[key].path }}">
+            <i class="fa fa-circle-o"></i>{{ menus[key].name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </li>
+{% endmacro %}

@@ -1,0 +1,4 @@
+admin_dashboard:
+  path:      /
+  defaults:  { _controller: AdminBundle:Default:index }
+

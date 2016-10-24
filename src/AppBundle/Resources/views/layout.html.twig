@@ -1,0 +1,9 @@
+{% import "AppBundle::macro.html.twig" as web_macro %}
+{% extends "base.html.twig" %}
+
+{% do css(['libs/vendor.css', 'app.css'], 100) %}
+{% do script(['libs/vendor.js', 'app.js'], 100) %}
+
+{% block body %}
+
+{% endblock %}

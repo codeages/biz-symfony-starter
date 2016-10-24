@@ -1,0 +1,17 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}服务器内部错误 - {{ parent() }}{% endblock %}
+
+{% block main %}
+<section class="error-main">  
+  <section class="error-section">
+    <img src="{{asset('images/pic-500.png')}}" srcset="{{asset('images/pic-500@2x.png')}}" alt="404错误图片">
+    <div class="error-description">
+      <h4>500 出错了！</h4>
+      <p>服务器发生了未知的错误，</p>
+      <p>请刷新页面或联系管理员。</p>
+      <a class="guide-link color-primary" href="{{ path('homepage') }}">返回首页</a>
+    </div>
+  </section>
+</section>
+{% endblock %}

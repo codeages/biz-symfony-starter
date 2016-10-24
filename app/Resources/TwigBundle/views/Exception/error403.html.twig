@@ -1,0 +1,17 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}无权限访问 - {{ parent() }}{% endblock %}
+
+{% block main %}
+<section class="error-main">  
+  <section class="error-section">
+    <img src="{{asset('images/pic-403.png')}}" srcset="{{asset('images/pic-403@2x.png')}}" alt="403错误图片">
+    <div class="error-description">
+      <h4>403 出错了！</h4>
+      <p>您没有权限访问当前页面，</p>
+      <p>请刷新页面或联系管理员。</p>
+      <a class="guide-link color-primary" href="{{ path('homepage') }}">返回首页</a>
+    </div>
+  </section>
+</section>
+{% endblock %}

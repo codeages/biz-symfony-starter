@@ -1,0 +1,17 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}页面不存在 - {{ parent() }}{% endblock %}
+
+{% block main %}
+<section class="error-main">  
+  <section class="error-section">
+    <img src="{{asset('images/pic-404.png')}}" srcset="{{asset('images/pic-404@2x.png')}}" alt="404错误图片">
+    <div class="error-description">
+      <h4>404 出错了！</h4>
+      <p>页面不存在或者已被移除，</p>
+      <p>请确认来源链接是否正确。</p>
+      <a class="guide-link color-primary" href="{{ path('homepage') }}">返回首页</a>
+    </div>
+  </section>
+</section>
+{% endblock %}

@@ -22,13 +22,12 @@ security:
             anonymous: true
             form_login:
                 login_path: login
-                check_path: _dev_login_check
+                check_path: login_check
             remember_me:
                 secret:   '%secret%'
                 lifetime:  8640000
-                name: LS # long session 
             logout:
-                path: _dev_logout
+                path: logout
 
             # http_basic: ~
             # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
@@ -40,5 +39,5 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     access_control:
-        - { path: ^/my, role: ROLE_USER }
-        - { path: ^/admin, role: ROLE_ADMIN }
+        # - { path: ^/my, role: ROLE_USER }
+        # - { path: ^/admin, role: ROLE_ADMIN }

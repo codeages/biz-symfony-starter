@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% import "AdminBundle::macro.html.twig" as admin_macro %}
+{% import "AdminBundle::macro.html.twig" as macro %}
 
 {% do css(['libs/vendor.css', 'admin.css'], 100) %}
 {% do script(['libs/vendor.js', 'admin.js'], 100) %}
@@ -9,8 +9,8 @@
   <header class="main-header">
     <!-- Logo -->
     <a href="" class="logo">
-      <span class="logo-mini"><b>ESO</b></span>
-      <span class="logo-lg"><b>ESO</b>Admin</span>
+      <span class="logo-mini"><b>Biz</b></span>
+      <span class="logo-lg"><b>Biz</b>Admin</span>
     </a>
     <nav class="navbar navbar-static-top">
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -42,17 +42,9 @@
           </a>
         </li>
         {% set menus = {
-          'site': { name: '网校列表', path: path('admin_site') },
-          'site-identify': { name: '认证管理', path: path('admin_site_identify_filter', {type: 'personal', status: 'submitted'}) }
+          'example': { name: 'Menu 1', path: path('admin_dashboard') },
         } %}
-        {{ _self.menu_group('网校', menus, nav) }}
-        {% set menus = {
-          'fund_account': { name: '账户', path: path('admin_fund_account') },
-          'fund_account_item': { name: '账目流水', path: path('admin_fund_account_items') },
-          'withdraws': { name: '提现记录', path: path('admin_withdraws') },
-        } %}
-        {{ _self.menu_group('财务', menus, nav) }}
-
+        {{ _self.menu_group('Menu Heading', menus, nav) }}
       </ul>
     </section>
     <!-- /.sidebar -->

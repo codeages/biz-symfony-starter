@@ -13,9 +13,36 @@ class AppKernel extends Kernel
 
     public function boot()
     {
+        if (true === $this->booted) {
+            return;
+        }
+
+        if ($this->loadClassCache) {
+            $this->doLoadClassCache($this->loadClassCache[0], $this->loadClassCache[1]);
+        }
+
+        $this->initializeBundles();
+        $this->initializeContainer();
+        $this->initializeBiz();
+
+        foreach ($this->getBundles() as $bundle) {
+            $bundle->setContainer($this->container);
+            $bundle->boot();
+        }
+
+        $this->booted = true;
+
         parent::boot();
+    }
+
+    protected function initializeBiz()
+    {
         $biz = $this->getContainer()->get('biz');
         $biz['migration.directories'][] = dirname(__DIR__) . '/migrations';
+        $biz['user.password_encoder'] = function() {
+            return new \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder('sha256');
+        }; 
+
         $biz->register(new \Codeages\Biz\Framework\Provider\DoctrineServiceProvider());
         $biz->boot();
     }

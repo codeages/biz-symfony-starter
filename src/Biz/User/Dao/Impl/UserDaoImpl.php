@@ -18,7 +18,7 @@ class UserDaoImpl extends GeneralDaoImpl implements UserDao
     {
         return array(
             'timestamps' => array('created_time', 'updated_time'),
-            'serializes' => array(),
+            'serializes' => array('roles' => 'delimiter'),
             'orderbys' => array(),
             'conditions' => array(
                 'username = :username',

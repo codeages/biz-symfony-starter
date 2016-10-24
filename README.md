@@ -38,14 +38,6 @@ npm install
 npm run dev
 ```
 
-### 最终编译
-
-```
-#会生成实体文件，本项目会生成到web/bundles/
-npm run compile
-npm run compile:debug  #不压缩
-```
-
 ## 单元测试
 
 ### 执行所有单元测试

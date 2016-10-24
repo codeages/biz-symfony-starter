@@ -17,8 +17,18 @@ class UserServiceImpl extends BaseService implements UserService
         return $this->getUserDao()->getByUsername($username);
     }
 
-    public function createUser($user)
+    public function createUser($fields)
     {
+        $user = [];
+        $user['username'] = $fields['username'];
+
+        $user['salt'] = md5(time().mt_rand(0, 1000));
+        $user['password'] = $this->biz['user.password_encoder']->encodePassword($fields['password'], $user['salt']);
+
+        if (empty($user['roles'])) {
+            $user['roles'] = array('ROLE_USER');
+        }
+
         return $this->getUserDao()->create($user);
     }
 

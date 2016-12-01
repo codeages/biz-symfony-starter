@@ -1,29 +1,18 @@
 <?php
-
 namespace AppBundle\Twig;
-
-use Codeages\Biz\Framework\DataStructure\UniquePriorityQueue;
 
 class HelperExtension extends \Twig_Extension
 {
-    protected $scripts = array();
-
-    protected $csses = array();
-
     protected $container;
 
     public function __construct($container)
     {
         $this->container = $container;
-        $this->scripts = new UniquePriorityQueue();
-        $this->csses = new UniquePriorityQueue();
     }
 
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('script', array($this, 'script')),
-            new \Twig_SimpleFunction('css', array($this, 'css')),
             new \Twig_SimpleFunction('select_options', array($this, 'selectOptions'), array('is_safe' => array('html'))),
             new \Twig_SimpleFunction('radios', array($this, 'radios'), array('is_safe' => array('html'))),
             new \Twig_SimpleFunction('checkboxs', array($this, 'checkboxs'), array('is_safe' => array('html'))),
@@ -38,36 +27,6 @@ class HelperExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFilter('money', [$this, 'formatMoney']),
         ];
-    }
-
-    public function script($paths = null, $priority = 0)
-    {
-        if (empty($paths)) {
-            return $this->scripts;
-        }
-
-        if (!is_array($paths)) {
-            $paths = array($paths);
-        }
-
-        foreach ($paths as $path) {
-            $this->scripts->insert($path, $priority);
-        }
-    }
-
-    public function css($paths = null, $priority = 0)
-    {
-        if (empty($paths)) {
-            return $this->csses;
-        }
-
-        if (!is_array($paths)) {
-            $paths = array($paths);
-        }
-
-        foreach ($paths as $path) {
-            $this->csses->insert($path, $priority);
-        }
     }
 
     public function selectOptions($choices, $selected = null, $empty = null)

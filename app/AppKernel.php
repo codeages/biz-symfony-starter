@@ -63,6 +63,7 @@ class AppKernel extends Kernel implements PluginableHttpKernelInterface
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Codeages\PluginBundle\CodeagesPluginBundle(),
             new AppBundle\AppBundle(),
             new AdminBundle\AdminBundle(),
         );

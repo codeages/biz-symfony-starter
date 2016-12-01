@@ -2,13 +2,18 @@
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Codeages\PluginBundle\System\PluginConfigurationManager;
+use Codeages\PluginBundle\System\PluginableHttpKernelInterface;
 
-class AppKernel extends Kernel
+class AppKernel extends Kernel implements PluginableHttpKernelInterface
 {
+    protected $pluginConfigurationManager;
+
     public function __construct($environment, $debug)
     {
         parent::__construct($environment, $debug);
         date_default_timezone_set('Asia/Shanghai');
+        $this->pluginConfigurationManager = new PluginConfigurationManager($this->getRootDir());
     }
 
     public function boot()
@@ -50,7 +55,8 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
-            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            new Codeages\PluginBundle\FrameworkBundle(),
+            // new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
@@ -84,5 +90,10 @@ class AppKernel extends Kernel
     public function getLogDir()
     {
         return dirname($this->rootDir).'/var/logs';
+    }
+
+    public function getPluginConfigurationManager()
+    {
+        return $this->pluginConfigurationManager;
     }
 }

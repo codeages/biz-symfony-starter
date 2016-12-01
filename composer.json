@@ -9,14 +9,15 @@
     },
     "require": {
         "php": ">=5.3.9",
-        "symfony/symfony": "^2.8.11",
+        "symfony/symfony": "^2.8.14",
         "doctrine/doctrine-bundle": "~1.4",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "codeages/biz-framework": "^0.1.4"
+        "codeages/biz-framework": "^0.1.7",
+        "codeages/plugin-bundle": "^0.1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
@@ -41,7 +42,10 @@
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "platform": {
+            "php": "5.3.9"
+        }
     },
     "extra": {
         "symfony-app-dir": "app",

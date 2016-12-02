@@ -22,3 +22,7 @@ npm-debug.log
 composer.lock
 .DS_Store
 edusoho-online.sublime-workspace
+
+chunk-manifest.json
+plugins/
+web/static/

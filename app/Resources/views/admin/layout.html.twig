@@ -2,8 +2,8 @@
 
 {% import "admin/macro.html.twig" as macro %}
 
-{% do css(['libs/vendor.css', 'admin.css'], 100) %}
-{% do script(['libs/vendor.js', 'admin.js'], 100) %}
+{% do css(['libs/vendor.css', 'admin/main.css'], 100) %}
+{% do script(['libs/vendor.js', 'admin/common.js', 'admin/main.js'], 100) %}
 {% set body_class = 'hold-transition skin-blue-light sidebar-mini' %}
 
 {% block body %}

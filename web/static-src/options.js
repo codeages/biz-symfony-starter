@@ -22,8 +22,7 @@
     pluginAssetsDir: 'Resources/assets',
     pluginBuildDir: 'Resources/static',
 
-    libsDevOutputDir: 'libs',
-    libsBuildOutputDir: 'web/static/libs',
+    libsOutputDir: 'libs',
 
     fontlimit: 20480,
     imglimit: 10240,
@@ -37,9 +36,7 @@
 const options = {
   output: {
     path: 'web/static/',       // dev env, file output path, relative to this file
-    buildPath: './',          // prod env, file output path, relative to this file
     publicPath: '/static/',    // relative to website domain, to server
-    loadersPublicPath: '../'  // loaders public path
   },
   libs: {
     vendor: ['libs/vendor.js'], //can be a js file

@@ -13,7 +13,7 @@
     <![endif]-->
     {% block stylesheets %}
       {% for path in css() %}
-        <link href="{{ asset('static/' ~ path, 'webpack') }}" rel="stylesheet" />
+        <link href="{{ asset('static-dist/' ~ path, 'webpack') }}" rel="stylesheet" />
       {% endfor %}
     {% endblock %}
   </head>
@@ -22,7 +22,7 @@
     <div id="modal" class="modal"></div>
     {% block scripts %}
       {% for path in script()  %}
-        <script src="{{ asset('static/' ~ path, 'webpack') }}"></script>
+        <script src="{{ asset('static-dist/' ~ path, 'webpack') }}"></script>
       {% endfor %}
     {% endblock %}
     <script>

@@ -1,4 +1,4 @@
 import 'admin-lte';
-import  './main.less';
+import  '../../less/admin/main.less';
 
 console.log('admin-main');

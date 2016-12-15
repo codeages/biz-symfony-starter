@@ -5,17 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1, maximum-scale=1">
     <meta content="{{ csrf_token(default_csrf_token_id) }}" name="csrf-token" />
-    <title>{% block title %}EduSoho Online{% endblock %}</title>
+    <title>{% block title %}Biz Symfony Starter{% endblock %}</title>
     <meta name="description" content="{% block description %}{% endblock %}" />
     <meta name="keywords" content="{% block keywords %}{% endblock %}" />
     <!--[if lt IE 9]>
-      <script src="{{ asset('bundles/libs/fix-ie.js', 'webpack') }}"></script>
+      <script src="{{ asset('static/libs/fix-ie.js', 'webpack') }}"></script>
     <![endif]-->
     {% block stylesheets %}
       {% for path in css() %}
-        <link href="{{ asset('bundles/' ~ path, 'webpack') }}" rel="stylesheet" />
+        <link href="{{ asset('static-dist/' ~ path, 'webpack') }}" rel="stylesheet" />
       {% endfor %}
-      <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/iconfont.css') }}">
     {% endblock %}
   </head>
   <body{% if body_class is defined %} class="{{ body_class }}"{% endif %}>
@@ -23,7 +22,7 @@
     <div id="modal" class="modal"></div>
     {% block scripts %}
       {% for path in script()  %}
-        <script src="{{ asset('bundles/' ~ path, 'webpack') }}"></script>
+        <script src="{{ asset('static-dist/' ~ path, 'webpack') }}"></script>
       {% endfor %}
     {% endblock %}
     <script>

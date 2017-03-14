@@ -1,8 +1,0 @@
-/var/data/private_files/*
-/var/cache/*
-/var/logs/*
-/var/tmp/*
-/web/files/*
-/.rsync-excludes
-/.deployer
-/node_modules

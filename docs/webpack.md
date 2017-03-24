@@ -11,19 +11,10 @@ npm install es-webpack-engine --save-dev
 ### webpack配置文件说明
 
 ```
-目录：/app/Resources/webpack/
-
-> 本项目中的打包资源配置文件:
-settings.js 
-
-> 开发模式优化配置文件
+> 配置文件-根目录下
 webpack.config.js
 
-> 开发环境下的入口文件 --- 不推荐修改
-webpack.dev.js
-
-> 生产环境下的入口文件 --- 不推荐修改
-webpack.js
+其中options中的内容，根据需求添加
 ```
 
 ### 依赖安装
@@ -40,12 +31,16 @@ cnpm install
 
 ### nginx添加配置项
 为了开发环境下，可以访问到webpack打包的资源
-```
+
+```bash
+set $webpack_server http://127.0.0.1:3030;
+
+location @webpack {
+    proxy_pass $webpack_server;
+}
+
 location ~ ^/static-dist {
-  if (-f $document_root/static-dist/dev.lock)
-  {
-    rewrite ^(.*)$ http://127.0.0.1:3030$1 last;
-  }
+    try_files $uri @webpack;
 }
 
 其中3030可修改，static-dist为webpack.config.js文件中config.output.publicPath的值

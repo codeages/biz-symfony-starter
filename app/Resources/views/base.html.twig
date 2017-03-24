@@ -8,22 +8,16 @@
     <title>{% block title %}Biz Symfony Starter{% endblock %}</title>
     <meta name="description" content="{% block description %}{% endblock %}" />
     <meta name="keywords" content="{% block keywords %}{% endblock %}" />
-    <!--[if lt IE 9]>
-      <script src="{{ asset('static/libs/fix-ie.js', 'webpack') }}"></script>
-    <![endif]-->
+    
     {% block stylesheets %}
-      {% for path in css() %}
-        <link href="{{ asset('static-dist/' ~ path, 'webpack') }}" rel="stylesheet" />
-      {% endfor %}
+      {% include 'css_loader.html.twig' %}
     {% endblock %}
   </head>
   <body{% if body_class is defined %} class="{{ body_class }}"{% endif %}>
     {% block body %}{% endblock %}
     <div id="modal" class="modal"></div>
     {% block scripts %}
-      {% for path in script()  %}
-        <script src="{{ asset('static-dist/' ~ path, 'webpack') }}"></script>
-      {% endfor %}
+      {% include 'js_loader.html.twig' %}
     {% endblock %}
     <script>
     var _hmt = _hmt || [];

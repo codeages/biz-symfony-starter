@@ -3,3 +3,8 @@ services:
         class: APIBundle\EventListener\ViewResponseListener
         tags:
             - {name: kernel.event_subscriber}
+
+    api.exception_listener:
+        class: APIBundle\EventListener\ExceptionListener
+        tags:
+            - {name: kernel.event_subscriber}

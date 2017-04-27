@@ -10,10 +10,17 @@ class ViewResponseListener implements EventSubscriberInterface
 {
     public function onKernelView(GetResponseForControllerResultEvent $event)
     {
-        $data = $event->getControllerResult();
-        $response = new JsonResponse($data);
+        $path = $event->getRequest()->getPathInfo();
+        if (strpos($path, '/api') !== 0) {
+            return ;
+        }
 
-        $event->setResponse($response);
+        $data = $event->getControllerResult();
+        if (is_array($data)) {
+            $response = new JsonResponse($data);
+            $event->setResponse($response);
+        }
+
     }
 
     public static function getSubscribedEvents()

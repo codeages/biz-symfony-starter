@@ -1,0 +1,5 @@
+services:
+    api.view_response_listener:
+        class: APIBundle\EventListener\ViewResponseListener
+        tags:
+            - {name: kernel.event_subscriber}

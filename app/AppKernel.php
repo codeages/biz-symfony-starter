@@ -65,6 +65,7 @@ class AppKernel extends Kernel implements PluginableHttpKernelInterface
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Codeages\PluginBundle\CodeagesPluginBundle(),
             new AppBundle\AppBundle(),
+            new APIBundle\APIBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

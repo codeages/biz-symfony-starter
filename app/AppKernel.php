@@ -6,6 +6,7 @@ use Codeages\PluginBundle\System\PluginConfigurationManager;
 use Codeages\PluginBundle\System\PluginableHttpKernelInterface;
 
 class AppKernel extends Kernel implements PluginableHttpKernelInterface
+
 {
     protected $pluginConfigurationManager;
 
@@ -56,7 +57,7 @@ class AppKernel extends Kernel implements PluginableHttpKernelInterface
     {
         $bundles = array(
             new Codeages\PluginBundle\FrameworkBundle(),
-            // new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+//            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),

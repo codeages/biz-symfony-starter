@@ -22,8 +22,8 @@ npm-debug.log
 composer.lock
 .DS_Store
 edusoho-online.sublime-workspace
-
 chunk-manifest.json
 .happypack/
 .chokidar-watch-add.log
+.idea/
 web/static-dist/
